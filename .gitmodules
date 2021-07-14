@@ -1,0 +1,3 @@
+[submodule "HealthKitExportParser"]
+	path = HealthKitExportParser
+	url = https://github.com/stefanluyten/HealthKitExportParser.git
