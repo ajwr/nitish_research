@@ -13,7 +13,6 @@ Source: <https://www.ryanpraski.com/apple-health-data-how-to-export-analyze-visu
 *1. Loads export.xml*
 *2. Set date to western time zone*
 *3. Add year, month, date, dayofweek, hour columns to dataframe*
-*Test*
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -23,11 +22,11 @@ library(ggplot2)
 library(lubridate)
 library(XML)
 
-#load apple health export.xml file
-xml <- xmlParse("/Users/alexrichardson/nitish_research/export.xml")
+#load apple health export.xml file for iMac
+xml <- xmlParse("/Users/alexanderrichardson/research/nitish_research/export.xml")
 
-#load apple health export.xml file
-xml <- xmlParse("/Users/alexrichardson/nitish_research/export.xml")
+#load apple health export.xml file for MBP
+#xml <- xmlParse("/Users/alexrichardson/nitish_research/export.xml")
 
 #transform xml file to data frame - select the Record rows from the xml file
 df <- XML:::xmlAttrsToDataFrame(xml["//Record"])
