@@ -2,3 +2,5 @@ apple_health_export
 export.xml
 csv_files
 healthkit_results.html
+.RData
+.Rhistory
