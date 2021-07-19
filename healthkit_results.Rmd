@@ -49,9 +49,9 @@ df$hour <-format(df$endDate,"%H")
 str(df)
 ```
 
-Show steps by month by year and graph.
+bar graph of steps by month by year
 
-```{r next}
+```{r bar, echo=FALSE}
 #show steps by month by year using dplyr then graph using ggplot2
 df %>%
   filter(type == 'HKQuantityTypeIdentifierStepCount') %>%
@@ -66,7 +66,11 @@ df %>%
   scale_fill_brewer() +
   theme_bw() +  
   theme(panel.grid.major = element_blank())
+```
 
+box plot of step by date by month by year
+
+```{r boxplot, echo=FALSE}
 #boxplot data by month by year
 df %>%
   filter(type == 'HKQuantityTypeIdentifierStepCount') %>%
@@ -79,19 +83,27 @@ df %>%
   scale_fill_brewer() +
   theme_bw() +  
   theme(panel.grid.major = element_blank())
+```
 
-#summary statistics by month for 2019
+Summary stats by month for only year 2020
+
+```{r summary steps 2020, echo=FALSE}
+#summary statistics by month for 2020
 df %>%
   filter(type == 'HKQuantityTypeIdentifierStepCount') %>%
   group_by(date,month,year) %>%
   summarize(steps=sum(value)) %>%
-  filter(year==2019) %>%
+  filter(year==2020) %>%
   group_by(month) %>%
   summarize(mean = round(mean(steps), 2), sd = round(sd(steps), 2), 
             median = round(median(steps), 2), max = round(max(steps), 2), 
             min = round(min(steps), 2),`25%`= quantile(steps, probs=0.25),
             `75%`= quantile(steps, probs=0.75))
+```
 
+Boxplot of steps by day of week by date by year
+
+```{r boxplot steps by day of week year, echo=FALSE}
 #boxplot data by day of week year
 df %>%
   filter(type == 'HKQuantityTypeIdentifierStepCount') %>%
@@ -104,20 +116,28 @@ df %>%
   scale_fill_brewer() +
   theme_bw() +  
   theme(panel.grid.major = element_blank())
+```
 
-#summary statistics by day of week for 2019
+Summary stats by day of week for 2020
+
+```{r summary steps by day of week for 2020, echo=FALSE}
+#summary statistics by day of week for 2020
 df %>%
   filter(type == 'HKQuantityTypeIdentifierStepCount') %>%
   group_by(dayofweek,date,year) %>%
   summarize(steps=sum(value)) %>%
-  filter(year==2019) %>%
+  filter(year==2020) %>%
   group_by(dayofweek) %>%
   summarize(mean = round(mean(steps), 2), sd = round(sd(steps), 2), 
             median = round(median(steps), 2), max = round(max(steps), 2), 
             min = round(min(steps), 2),`25%`= quantile(steps, probs=0.25),
             `75%`= quantile(steps, probs=0.75)) %>%
   arrange(desc(median))
+```
 
+Heatmap by day of week by hour of day
+
+```{r heatmap by day of week by hour of day, echo=FALSE}
 #heatmap day of week hour of day
 df %>%
   filter(type == 'HKQuantityTypeIdentifierStepCount') %>%
