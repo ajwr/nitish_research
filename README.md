@@ -10,9 +10,13 @@ git clone --recurse-submodules -j8 https://github.com/stefanluyten/HealthKitExpo
 
 
 # Usage
-1. Use applehealthdata.py to parser export.xml to a CSV file
+1. Use applehealthdata.py to parser export.xml to a CSV file. Load into excel/SPSS/etc for graphing and analysis
 1.1 - 'mkdir csv_files' 
 1.2 - 'mv *.csv csv_files'
-2. Feed CSV files into apple_health_load_analysis_R.r
+
+**OR**
+
+2. Use healthkit_results in R studio to generate an html file of results. NOTE: Be sure you changed the path on line 26 to your export.xml
+
 3. Enjoy... :)
 
