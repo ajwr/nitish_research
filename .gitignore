@@ -4,3 +4,4 @@ csv_files
 healthkit_results.html
 .RData
 .Rhistory
+.DS_Store
