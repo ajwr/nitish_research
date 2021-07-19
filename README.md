@@ -4,7 +4,7 @@ This repo will contain the codesss for parsing and displaying HealthKit XML data
 
 # Installation
 1. Clone main repo:
-git clone https://github.com/ajwr/vitish_research
+git clone https://github.com/ajwr/nitish_research
 2. Clone included submodule:
 git clone --recurse-submodules -j8 https://github.com/stefanluyten/HealthKitExportParser/
 
